@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .profile-card {
+            width: 300px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            padding-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .banner {
+            height: 100px;
+            background: linear-gradient(to right, blue, purple);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background-color: #ffcc00;
+            color: white;
+            border: 5px solid white;
+            border-radius: 50%;
+            margin: -50px auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .role {
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px;
+        }
+
+        .skills li {
+            background-color: #eeeeee;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .followers {
+            margin: 20px 0 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        button {
+            background-color: #4169e1;
+            color: white;
+            border: 2px solid #4169e1;
+            padding: 10px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button.following {
+            background-color: white;
+            color: #4169e1;
+            border: 2px solid #4169e1;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML -->
+    <div class="profile-card">
+
+        <div class="banner"></div>
+
+        <div class="avatar">AK</div>
+
+        <h2>Arjun Kumar</h2>
+
+        <p class="role">Web Developer</p>
+
+        <ul class="skills">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Git</li>
+        </ul>
+
+        <p class="followers">
+            <span id="count">120</span> followers
+        </p>
+
+        <button id="followBtn" onclick="toggleFollow()">
+            Follow
+        </button>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let isFollowing = false;
+
+        function toggleFollow() {
+
+            let button = document.getElementById("followBtn");
+            let count = document.getElementById("count");
+
+            if (isFollowing === false) {
+
+                button.innerText = "Following";
+                button.classList.add("following");
+                count.innerText = "121";
+
+                isFollowing = true;
+
+            } else {
+
+                button.innerText = "Follow";
+                button.classList.remove("following");
+                count.innerText = "120";
+
+                isFollowing = false;
+            }
+        }
+    </script>
+
+</body>
+</html>
